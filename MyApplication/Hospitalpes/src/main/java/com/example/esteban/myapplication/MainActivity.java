@@ -25,4 +25,15 @@ public class MainActivity extends AppCompatActivity {
         //force links in web view
         mWebView.setWebViewClient(new WebViewClient());
     }
+
+    //this method allows the back button to be used inside the webview as in a browser
+    @Override
+    public void onBackPressed() {
+        if(mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }
